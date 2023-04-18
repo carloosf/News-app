@@ -22,19 +22,23 @@ export default function Home() {
 
   return (
     <div>
+      <hero>
 
+        <h1>Indicação: </h1>
         {HeroPost && (
-          <hero className={styles.hero}>
-            <img src={HeroPost.coverImage} alt="" />
-            <h2>{HeroPost.title}</h2>
+          <div className={styles.infoHero}>
+            <div className={styles.heroImage}>
+              <img src={HeroPost.coverImage} alt="" />
+              <h2>{HeroPost.title}</h2>
+              
+            </div>
             <p>{HeroPost.description}</p>
-            <p>Escrito por: {HeroPost.author}</p>
             <p>{HeroPost.content.substring(0, 255)}
             </p>
-          </hero>
+          </div>
         )}
+      </hero>
 
-        
       <main className={styles.main}>
         <h1>Ultimas Noticias</h1>
         <ul className={styles.listNews}>
