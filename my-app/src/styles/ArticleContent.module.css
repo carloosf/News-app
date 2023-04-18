@@ -1,0 +1,21 @@
+.section{
+    margin-top: 4rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.section *{
+    width: 50vw;
+}
+
+.article {
+    margin-block: 1rem;
+}
+
+.article img{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+

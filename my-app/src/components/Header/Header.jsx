@@ -1,8 +1,10 @@
 import styles from '@/styles/Header.module.css'
+import Link from 'next/link';
+
 export default function Header() {
     return (
         <nav className={styles.nav}>
-            <p className={styles.logo}>OperNews</p>
+            <Link href={`/`} className={styles.logo}>OperNews </Link>
             <div className={styles.button}>Lupa</div>
         </nav>
     )

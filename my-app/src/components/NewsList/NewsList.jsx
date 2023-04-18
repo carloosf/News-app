@@ -7,7 +7,7 @@ export default function NewsList({ posts }) {
             <h1 className={styles.title}>Ultimas Noticias</h1>
             <ul className={styles.listNews}>
                 {posts.map(post => (
-                    <Link href={`/posts/${post.id}`} key={post.id}>
+                    <Link href={`/article/${post.id}`} key={post.id}>
                         <li className={styles.cardNews}>
                             <img src={post.coverImage} alt="" />
                             <h3>{post.title}</h3>
