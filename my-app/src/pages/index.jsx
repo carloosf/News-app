@@ -8,11 +8,11 @@ export default function Home() {
   const [posts, setPosts] = useState([])
   const [HeroPost, setHeroPost] = useState(null)
 
-  useEffect(() => {
+  useEffect(()  => {
     fetch(`https://news-api.lublot.dev/api/posts`)
       .then(response => response.json())
       .then(data => {
-        setPosts(data.slice(0, 10))
+        setPosts(data)
         setHeroPost(data[Math.floor(Math.random() * data.length)])
       })
       .catch(error => console.error(error))
@@ -23,21 +23,17 @@ export default function Home() {
   return (
     <div>
       <hero className={styles.hero}>
-
         <h1>Indicação: </h1>
 
         {HeroPost && (
-
           <div className={styles.infoHero}>
             <div className={styles.heroImage}>
               <img src={HeroPost.coverImage} alt="" />
               <h2>{HeroPost.title}</h2>
             </div>
-
             <div className={styles.heroContent}>
               <p>{HeroPost.content.substring(0, 320)}... <span>Continuar lendo</span> </p>
             </div>
-
           </div>
         )}
       </hero>

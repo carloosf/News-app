@@ -1,20 +1,33 @@
 .listNews {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
     list-style: none;
 }
 
 .cardNews {
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(46, 44, 44);
+    border: 1px solid rgb(182, 178, 178);
     color: rgb(0, 0, 0);
+    padding: 2rem;
+    transition: 0.3s;
+}
+
+.cardNews:hover {
+    background-color: rgb(241, 236, 236);
+    
+    border: 1px solid rgb(168, 166, 166);
+
 }
 
 .cardNews img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
+}
+
+.cardNews h3, .cardNews p{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .infoHero {
@@ -56,8 +69,8 @@
 
 .heroImage h2 {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 25px;
+    left: 25px;
     z-index: 1;
     color: white;
     transition: 0.5;

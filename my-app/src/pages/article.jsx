@@ -1,9 +1,9 @@
 export default function Article() {
   return (
 
-      <main className={styles.main}>
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
+      <main>
+            <h2>
+              ola, sou o article de {}
             </h2>
       </main>
   )
