@@ -21,9 +21,9 @@ export default function Home() {
   console.log(posts[1])
 
   return (
-    <div>
+    <div className={styles.home}>
       <hero className={styles.hero}>
-        <h1>Indicação: </h1>
+        <h1 className={styles.title}>Indicação: </h1>
 
         {HeroPost && (
           <div className={styles.infoHero}>
@@ -32,14 +32,15 @@ export default function Home() {
               <h2>{HeroPost.title}</h2>
             </div>
             <div className={styles.heroContent}>
-              <p>{HeroPost.content.substring(0, 320)}... <span>Continuar lendo</span> </p>
+              <p>{HeroPost.content.substring(0, 300)}... </p>
+              <span>Continuar lendo</span>
             </div>
           </div>
         )}
       </hero>
 
       <main className={styles.main}>
-        <h1>Ultimas Noticias</h1>
+        <h1 className={styles.title}>Ultimas Noticias</h1>
         <ul className={styles.listNews}>
           {posts.map(post => (
             <li key={post.id} className={styles.cardNews}>
