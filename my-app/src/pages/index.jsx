@@ -1,57 +1,30 @@
 import styles from '@/styles/Home.module.css'
-
 import { useEffect, useState } from 'react'
+import Hero from '@/components/Hero/Hero';
+import NewsList from '@/components/NewsList/NewsList';
+import { fetchPosts } from '@/api/newsApi';
 
 
 export default function Home() {
 
   const [posts, setPosts] = useState([])
-  const [HeroPost, setHeroPost] = useState(null)
+  const [heroPost, setHeroPost] = useState(null)
 
-  useEffect(()  => {
-    fetch(`https://news-api.lublot.dev/api/posts`)
-      .then(response => response.json())
-      .then(data => {
-        setPosts(data)
-        setHeroPost(data[Math.floor(Math.random() * data.length)])
-      })
-      .catch(error => console.error(error))
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetchPosts()
+      setPosts(data)
+      setHeroPost(data[Math.floor(Math.random() * data.length)])
+    }
+    fetchData()
   }, [])
 
   console.log(posts[1])
 
   return (
     <div className={styles.home}>
-      <hero className={styles.hero}>
-        <h1 className={styles.title}>Indicação: </h1>
-
-        {HeroPost && (
-          <div className={styles.infoHero}>
-            <div className={styles.heroImage}>
-              <img src={HeroPost.coverImage} alt="" />
-              <h2>{HeroPost.title}</h2>
-            </div>
-            <div className={styles.heroContent}>
-              <p>{HeroPost.content.substring(0, 300)}... </p>
-              <span>Continuar lendo</span>
-            </div>
-          </div>
-        )}
-      </hero>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Ultimas Noticias</h1>
-        <ul className={styles.listNews}>
-          {posts.map(post => (
-            <li key={post.id} className={styles.cardNews}>
-              <img src={post.coverImage} alt="" />
-              <h3>{post.title}</h3>
-              <p>{post.description}</p>
-              <p>Escrito por: {post.author}</p>
-            </li>
-          ))}
-        </ul>
-      </main>
+      <Hero post={heroPost} />
+      <NewsList posts={posts} />
     </div>
   )
 }
