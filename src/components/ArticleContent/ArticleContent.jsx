@@ -1,7 +1,5 @@
 import moment from 'moment';
 import styles from '@/styles/ArticleContent.module.css';
-import { useState } from 'react';
-
 export default function ArticleContent({ article, content }) {
 
     const contentOrganized = Array.isArray(content) ? content.reduce((acc, curr, index) => {
@@ -25,17 +23,19 @@ export default function ArticleContent({ article, content }) {
 
             <ul className={styles.article}>
                 {contentOrganized.map(contentOrganized => (
-                        <li>
-                            <p>{`${contentOrganized}`}</p><br />
-                        </li>
+                    <li>
+                        <p>{`${contentOrganized}`}</p><br />
+                    </li>
                 ))}
+                <hr />
             </ul>
 
 
             <section>
+                <h1>Comentarios:</h1>
+                <textarea name="" id="" cols="30" rows="10" className={styles.CommentArea}></textarea>
+                <button type="submit"></button>
             </section>
-
-            <textarea name="" id="" cols="30" rows="10"></textarea>
 
             <footer>
             </footer>

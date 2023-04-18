@@ -30,3 +30,13 @@
     font-size: larger;
     list-style: none;
 }
+
+.article hr{
+    margin-block: 3rem;
+}
+
+.CommentArea{
+    resize: none;
+    padding: 10px;
+    font-size: medium;
+}

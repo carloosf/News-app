@@ -1,5 +1,17 @@
 .footer {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
+    height: 1rem;
+    display: fixed;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    bottom: 0;
+    height: 10vh;
+
+    background-color: rgb(32, 31, 31);
+}
+
+.footer * {
+    margin: 100px;
+    color: white;
 }
