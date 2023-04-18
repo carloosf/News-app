@@ -1,14 +1,20 @@
 import moment from 'moment';
 import styles from '@/styles/ArticleContent.module.css';
+import { useState } from 'react';
 
-export default function ArticleContent({ article }) {
+export default function ArticleContent({ article, content }) {
 
-    console.log(article.content)
+    const contentOrganized = Array.isArray(content) ? content.reduce((acc, curr, index) => {
+        if (index % 2 === 0) {
+            acc.push(curr + content[index + 1]);
+        }
+        return acc;
+    }, []) : [];
 
-    const text = arti
+
 
     return (
-        <body className={styles.section}>
+        <section className={styles.section}>
             <header className={styles.header}>
                 <h1>{article.title}</h1>
                 <span>{article.author}</span>
@@ -17,17 +23,22 @@ export default function ArticleContent({ article }) {
                 <img src={article.coverImage} alt="" />
             </header>
 
-            <article className={styles.article}>
-                <p className={styles.title}>{article.content}</p>
-            </article>
+            <ul className={styles.article}>
+                {contentOrganized.map(contentOrganized => (
+                        <li>
+                            <p>{`${contentOrganized}`}</p><br />
+                        </li>
+                ))}
+            </ul>
+
 
             <section>
-
             </section>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <footer>
 
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+
+            <footer>
             </footer>
-        </body>
+        </section>
     );
 }

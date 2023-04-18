@@ -27,6 +27,6 @@
 }
 
 .article {
-    white-space: pre-line;
-    font-size: large;
+    font-size: larger;
+    list-style: none;
 }
