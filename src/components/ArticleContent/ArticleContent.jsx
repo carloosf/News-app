@@ -1,27 +1,33 @@
 import moment from 'moment';
+import { useState, useEffect } from 'react';
 import styles from '@/styles/ArticleContent.module.css';
 export default function ArticleContent({ article, content }) {
+    const [articleState, setArticle] = useState({});
 
-    const contentOrganized = Array.isArray(content) ? content.reduce((acc, curr, index) => {
+    const contentOrganized = (content ?? []).reduce((acc, curr, index) => {
         if (index % 2 === 0) {
             acc.push(curr + content[index + 1]);
         }
         return acc;
-    }, []) : [];
+    }, []);
 
-
+    useEffect(() => {
+        if (article) {
+            setArticle(article);
+        }
+    }, [article]);
 
     return (
         <section className={styles.section}>
             <header className={styles.header}>
-                <h1>{article.title}</h1>
-                <span>{article.author}</span>
+                <h1>{articleState.title}</h1>
+                <span>{articleState.author}</span>
                 <span>|</span>
-                <span>{moment(article.published).format('DD/MM/YYYY')}</span>
-                <img src={article.coverImage} alt="" />
+                <span>{moment(articleState.published).format('DD/MM/YYYY')}</span>
+                <img src={articleState.coverImage} alt="" />
             </header>
 
-            <ul className={styles.article}>
+            <ul className={styles.articleState}>
                 {contentOrganized.map(contentOrganized => (
                     <li>
                         <p>{`${contentOrganized}`}</p><br />
