@@ -1,13 +1,17 @@
-import React from 'react';
+import moment from 'moment';
 import styles from '@/styles/ArticleContent.module.css';
 
 export default function ArticleContent({ article }) {
+    
+    console.log(article.content)
+
     return (
         <section className={styles.section}>
             <header className={styles.header}>
-                <h1 className={styles.title}>{article.title}</h1>
-                <p>{article.author}</p>
-                <p>{article.published}</p>
+                <h1>{article.title}</h1>
+                <span>{article.author}</span>
+                <span>|</span>
+                <span>{moment(article.published).format('DD/MM/YYYY')}</span>
                 <img src={article.coverImage} alt="" />
             </header>
 

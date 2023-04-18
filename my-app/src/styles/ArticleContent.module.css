@@ -1,21 +1,32 @@
-.section{
+.section {
     margin-top: 4rem;
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-.section *{
-    width: 50vw;
+.section * {
+    width: 60vw;
 }
 
-.article {
-    margin-block: 1rem;
+.header h1 {
+    margin-block: 10px;
+    font-size: xx-large;
 }
 
-.article img{
+.header img {
     object-fit: cover;
     width: 100%;
     height: auto;
+    margin-block: 1rem;
+    border-radius: 10px;
 }
 
+.header span {
+    margin-right: 10px;
+}
+
+.article {
+    white-space: pre-line;
+    font-size: large;
+}
