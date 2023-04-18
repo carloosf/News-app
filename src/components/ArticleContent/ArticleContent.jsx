@@ -2,11 +2,13 @@ import moment from 'moment';
 import styles from '@/styles/ArticleContent.module.css';
 
 export default function ArticleContent({ article }) {
-    
+
     console.log(article.content)
 
+    const text = arti
+
     return (
-        <section className={styles.section}>
+        <body className={styles.section}>
             <header className={styles.header}>
                 <h1>{article.title}</h1>
                 <span>{article.author}</span>
@@ -19,9 +21,13 @@ export default function ArticleContent({ article }) {
                 <p className={styles.title}>{article.content}</p>
             </article>
 
+            <section>
+
+            </section>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
             <footer>
 
             </footer>
-        </section>
+        </body>
     );
 }
