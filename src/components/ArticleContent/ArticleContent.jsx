@@ -30,7 +30,7 @@ export default function ArticleContent({ article, content }) {
                 <img src={articleState.coverImage} alt="" />
             </header>
 
-            <ul className={styles.articleState}>
+            <ul className={styles.articleText}>
                 {contentOrganized.map(contentOrganized => (
                     <li>
                         <p>{`${contentOrganized}`}</p><br />

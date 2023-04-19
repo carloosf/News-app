@@ -1,9 +1,99 @@
-.commentSection{
+.commentSection h1 {
     margin-block: 2rem;
 }
 
-.commentArea{
+.commentArea {
+    width: 100%;
+    height: auto;
     resize: none;
     padding: 10px;
     font-size: medium;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid rgb(39, 39, 39);
+    overflow: hidden;
+    outline: none;
+}
+
+.commentArea:focus {
+    width: 100%;
+    list-style: none;
+    resize: none;
+    padding: 10px;
+}
+
+.commentItem {
+    list-style: none;
+    margin-block: 1rem;
+    box-sizing: content-box;
+    width: 100%;
+}
+
+.commentItem p{
+    margin-block: 10px;
+}
+
+.commentHeader {
+    display: flex;
+    color: rgb(0, 0, 0);
+    align-self: center;
+}
+
+.commentDate {
+    color: rgb(77, 77, 77);
+    font-size: 0.8rem;
+}
+
+.commentButton {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-block-start: 20px;
+    margin-block-end: 40px;
+}
+
+.commentButton * {
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.commentButton *:nth-child(2) {
+    background-color: inherit;
+    border: none;
+    transition: 0.5s;
+}
+
+.commentButton *:nth-child(2):hover {
+    background-color: red;
+    color: white;
+}
+
+.commentButton *:nth-child(1) {
+    background-color: rgb(54, 53, 53);
+    color: aliceblue;
+    border: none;
+    transition: 0.5s;
+}
+
+
+.commentItem hr{
+    margin-block: 3rem 1rem;
+}
+.commentNav{
+    margin-block-start: 20px;
+    display: flex;
+    align-items: center;
+    width: 1rem;
+}
+
+.commentNav:nth-child(1){
+    
+    background-color: black;
+}
+
+.commentNav button{
+    width: 80px;
+    height: auto;
 }

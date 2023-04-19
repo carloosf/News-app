@@ -28,9 +28,13 @@
 
 .article {
     font-size: larger;
-    list-style: none;
 }
 
 .article hr{
     margin-block: 3rem;
+}
+
+.articleText{
+    list-style: none;
+    font-size: large;
 }
