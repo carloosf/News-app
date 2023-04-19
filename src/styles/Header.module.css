@@ -1,22 +1,52 @@
 .nav {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-
-    top: 0;
-    height: 10vh;
-
-    color: white;
-    background-color: rgb(32, 31, 31);
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
 }
 
-.nav * {
-    margin: 100px;
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.nav Link {
+.logo p {
+    display: flex;
+    align-items: center;
+    color: #fff;
     text-decoration: none;
-    color: antiquewhite;
+}
+
+.logo img {
+    margin-right: 10px;
+    width: 30px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.login,
+.signup {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.login {
+    color: #3b28eb;
+    background-color: #fff;
+    border: 2px solid #3b28eb;
+}
+
+.login:hover {
+    color: #fff;
+    background-color: #3b28eb;
 }
