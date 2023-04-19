@@ -22,35 +22,51 @@ export default function Login() {
         }
     };
 
+    //front
+
+    
+
     return (
         <div className={styles.loginContainer}>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <h2>Login</h2>
-                <div className={styles.formGroup}>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Insira seu Email"
-                        required
-                    />
-                </div>
-                <div className={styles.formGroup}>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Insira sua Senha"
-                        required
-                    />
-                </div>
-                <button type="submit">Login</button>
-            </form>
-            <button className={styles.buttonSignup} type="submit">
-                Cadastrar Agora
-            </button>
+
+            <div className={styles.form}>
+
+                <form className={styles.formData} onSubmit={handleSubmit}>
+                    <nav className={styles.options}>
+                        <button>Entrar</button>
+                        <button>Cadastrar</button>
+                    </nav>
+                    <div className={styles.inputContainer}>
+                        <h2>Bem Vindo de Volta!</h2>
+                        <div className={styles.formLogin}>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Insira seu Email"
+                                required
+                            />
+                        </div>
+                        <div className={styles.formLogin}>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Insira sua Senha"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <button type="submit">Login</button>
+                </form>
+
+            </div>
+
+
+            <div className={styles.formContent}>
+                <h1>Olá, Ainda nao tem Cadastro?</h1>
+            </div>
         </div>
     );
 }

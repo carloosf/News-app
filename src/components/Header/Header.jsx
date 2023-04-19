@@ -13,7 +13,7 @@ export default function Header() {
             </div>
             <div className={styles.actions}>
                 <Link href={`/login`} className={styles.login}>
-                    <p>Login</p>
+                    <p>Entrar</p>
                 </Link>
             </div>
         </nav>

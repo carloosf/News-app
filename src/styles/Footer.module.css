@@ -1,14 +1,13 @@
 .footer {
-    height: 1rem;
-    display: fixed;
+    position: relative;
+    box-shadow: 1px 1px 10px 5px rgb(34, 34, 34);
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-
-    bottom: 0;
+    padding: 20px;
+    background-color: #1b1b1b;
+    color: #fff;
     height: 10vh;
-
-    background-color: rgb(32, 31, 31);
 }
 
 .footer * {

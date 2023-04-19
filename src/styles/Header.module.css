@@ -25,8 +25,8 @@
 }
 
 .logo img {
-    margin-right: 10px;
-    width: 30px;
+    margin-inline-start: 20px;
+    width: 40%;
 }
 
 .actions {
@@ -34,22 +34,23 @@
     align-items: center;
 }
 
-.login,
-.signup {
+.login {
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.3s;
+    transition: 0.5s;
+    margin-inline-end: 1rem;
 }
 
-.login {
-    color: #3b28eb;
-    background-color: #fff;
-    border: 2px solid #3b28eb;
+.login{
+    color: #ffffff;
+    background-color: inherit;
+    border: 2px solid #a7a5a5;
 }
 
 .login:hover {
-    color: #fff;
-    background-color: #3b28eb;
+    color: #1b1b1b;
+    background-color: #ffff;
+    border: 2px solid inherit;
 }

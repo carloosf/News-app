@@ -45,8 +45,14 @@
     transition: 0.3s;
 }
 
+.cardNews:hover h3{
+    text-decoration: underline;
+
+}
+
 .cardNews:hover {
-    background-color: rgb(247, 244, 244);
+    background-color: rgb(235, 231, 231);
+
 }
 
 .cardNews img {
