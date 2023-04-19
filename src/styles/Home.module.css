@@ -1,6 +1,8 @@
 .home {
-    margin-inline: 10rem;
     margin-top: 2rem;
+}
+
+.main{
 }
 
 .title{
@@ -13,12 +15,27 @@
     list-style: none;
 }
 
+.footerCard{
+    display: flex;
+    margin-bottom: 0.5rem;
+    font-size: 10px;
+    color: rgb(119, 118, 118);
+    border-top: 1px solid rgb(119, 118, 118);
+}
+
+.contentCard{
+    padding: 8px;
+    line-break: anywhere;
+    flex-grow: 1;
+}
+
 .cardNews {
+    display: flex;
+    flex-direction: column;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(182, 178, 178);
     color: rgb(0, 0, 0);
-    padding: 2rem;
-    height: 100%;
+    height: 23rem;
     transition: 0.3s;
 }
 
@@ -31,6 +48,9 @@
     width: 100%;
     height: auto;
     object-fit: contain;
+}
+
+.cardNews h3{
     
 }
 
@@ -40,3 +60,12 @@
     margin-left: 0.5rem;
 }
 
+.homeContent{
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+}
+
+.link{
+    margin: 1.5rem;
+    background-color: blueviolet;
+}
