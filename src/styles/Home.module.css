@@ -1,5 +1,16 @@
 .title {
-    margin-block: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 9rem;
+    gap: 1rem;
+}
+
+.title * {
+    margin: 0 auto;
+    width: 30%;
 }
 
 .listNews {
@@ -12,8 +23,8 @@
     display: flex;
     margin-bottom: 0.5rem;
     font-size: 10px;
-    color: rgb(119, 118, 118);
-    border-top: 1px solid rgb(119, 118, 118);
+    color: rgb(173, 172, 172);
+    border-top: 1px solid rgb(173, 172, 172);
 }
 
 .contentCard {
@@ -23,18 +34,19 @@
 }
 
 .cardNews {
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
     display: grid;
     grid-template-rows: 2fr auto 2fr;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(182, 178, 178);
+    box-shadow: 1px 0px 9px 1px rgb(184, 181, 181);
     color: rgb(0, 0, 0);
     height: 23rem;
     transition: 0.3s;
 }
 
 .cardNews:hover {
-    background-color: rgb(241, 236, 236);
-    border: 1px solid rgb(168, 166, 166);
+    background-color: rgb(247, 244, 244);
 }
 
 .cardNews img {
@@ -66,5 +78,4 @@
 
 .link {
     margin: 1.5rem;
-    background-color: blueviolet;
 }

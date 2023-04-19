@@ -5,8 +5,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-
-
 export async function authenticateUser(email, password) {
     const connection = mysql.createConnection(process.env.DATABASE_URL);
 

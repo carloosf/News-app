@@ -1,3 +1,22 @@
-.aside{
-    background-color: black;
+.aside {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgb(214, 213, 213);
+}
+
+.headerAside {
+    background-color: rgb(138, 138, 158);
+    width: 100%;
+    height: 5%;
+}
+
+.headerAside h1 {
+    font-size: medium;
+    padding: 1rem;
+}
+
+.categoryList {
+    
+    background-color: rgb(255, 255, 255);
+
 }

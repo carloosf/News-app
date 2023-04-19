@@ -1,8 +1,10 @@
 import styles from '@/styles/Hero.module.css'
+import Link from 'next/link';
+
 
 export default function Hero({ post }) {
     return (
-        <hero className={styles.hero}>
+        <Link href={`/article/${post.id}`} className={styles.hero}>
             {post && (
                 <div className={styles.infoHero}>
                     <div className={styles.heroImage}>
@@ -11,6 +13,6 @@ export default function Hero({ post }) {
                     </div>
                 </div>
             )}
-        </hero>
+        </Link>
     )
 }

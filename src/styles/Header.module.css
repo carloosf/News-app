@@ -1,9 +1,12 @@
 .nav {
+    position: relative;
+    z-index: 1;
+    box-shadow: 1px 1px 10px 5px rgb(34, 34, 34);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #333;
+    background-color: #1b1b1b;
     color: #fff;
 }
 

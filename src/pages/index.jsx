@@ -11,7 +11,7 @@ export default function Home({ posts, heroPost, tags }) {
       <Hero post={heroPost} />
       <main className={styles.homeContent}>
         <NewsList posts={posts} tags={tags} />
-        <Aside />
+        <Aside tags={tags} />
       </main>
     </div>
   )
