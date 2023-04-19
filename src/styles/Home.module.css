@@ -1,11 +1,6 @@
-.home {
-    margin-top: 2rem;
-}
 
-.main{
-}
 
-.title{
+.title {
     margin-block: 1rem;
 }
 
@@ -15,7 +10,7 @@
     list-style: none;
 }
 
-.footerCard{
+.footerCard {
     display: flex;
     margin-bottom: 0.5rem;
     font-size: 10px;
@@ -23,15 +18,15 @@
     border-top: 1px solid rgb(119, 118, 118);
 }
 
-.contentCard{
+.contentCard {
     padding: 8px;
     line-break: anywhere;
-    flex-grow: 1;
+    height: min-content;
 }
 
 .cardNews {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 2fr auto 2fr;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(182, 178, 178);
     color: rgb(0, 0, 0);
@@ -50,22 +45,28 @@
     object-fit: contain;
 }
 
-.cardNews h3{
-    
-}
-
 .cardNews h3,
 .cardNews p {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
 }
 
-.homeContent{
+.cardNews h3{
+    font-size: medium;
+}
+
+.cardNews article{
+    padding-inline: 1rem;
+    font-size: smaller;
+    color: rgb(90, 88, 88);
+}
+
+.homeContent {
     display: grid;
     grid-template-columns: 2.5fr 1fr;
 }
 
-.link{
+.link {
     margin: 1.5rem;
     background-color: blueviolet;
 }

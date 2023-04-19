@@ -16,7 +16,7 @@ export default function NewsList({ posts }) {
                                 <h3>{post.title}</h3>
                             </div>
                             <article>
-                                {[post.content.slice(0, 80)]}...
+                                {[post.content.slice(0, 160)]}...
                             </article>
                             <footer className={styles.footerCard}>
                                 <p>{post.author}</p>
