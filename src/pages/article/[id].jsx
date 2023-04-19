@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import ArticleContent from '@/components/ArticleContent/ArticleContent'
+import axios from 'axios';
+
 
 export default function Post() {
   const router = useRouter();
@@ -8,20 +10,16 @@ export default function Post() {
   const [content, setContent] = useState([]);
 
   useEffect(() => {
-    async function fetchPost() {
-      const res = await fetch(`https://news-api.lublot.dev/api/posts/${router.query.id}`);
-      const data = await res.json();
-      const contentArr = data.content ? data.content.split('\n') : [];
-      setContent(contentArr);
-      setPost(data);
-    }
-
-    fetchPost();
-  }, [router.query.id]);
-
-  if (Object.keys(post).length === 0) {
-    return <div>Loading...</div>;
-  }
+    axios.get(`https://news-api.lublot.dev/api/posts/${router.query.id}`)
+      .then((response) => {
+        setPost(response.data)
+        const contentArr = response.data.content ? response.data.content.split('\n') : []
+        setContent(contentArr)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, [router.query.id])
 
   return (
     <div>
