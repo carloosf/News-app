@@ -1,0 +1,9 @@
+.commentSection{
+    margin-block: 2rem;
+}
+
+.commentArea{
+    resize: none;
+    padding: 10px;
+    font-size: medium;
+}

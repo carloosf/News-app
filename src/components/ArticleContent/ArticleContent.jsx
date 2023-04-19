@@ -1,6 +1,9 @@
 import moment from 'moment';
 import { useState, useEffect } from 'react';
 import styles from '@/styles/ArticleContent.module.css';
+import Comments from '../Comments/Comments';
+
+
 export default function ArticleContent({ article, content }) {
     const [articleState, setArticle] = useState({});
 
@@ -37,11 +40,7 @@ export default function ArticleContent({ article, content }) {
             </ul>
 
 
-            <section>
-                <h1>Comentarios:</h1>
-                <textarea name="" id="" cols="30" rows="10" className={styles.CommentArea}></textarea>
-                <button type="submit"></button>
-            </section>
+            <Comments></Comments>
 
             <footer>
             </footer>
