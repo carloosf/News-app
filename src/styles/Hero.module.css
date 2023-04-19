@@ -29,7 +29,8 @@
 
 .heroImage h2 {
     word-wrap: break-word;
-    width: 90%;
+    width: 50%;
+    font-size: 3vw;
     position: absolute;
     bottom: 25px;
     left: 25px;
