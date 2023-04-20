@@ -1,30 +1,9 @@
-No terminal use:
-
-```bash
-npm i
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-# [userLink](https://symphonious-shortbread-44b2f5.netlify.app/)
+# [Oper - Seleção]
 
 ## :page_facing_up: Sobre o Projeto
-- Este projeto trata-se de uma landing page desenvolvida no Visual Studio Code com a finalidade de pôr em prática meus conhecimentos em JS.
-- Criado em 18/10/2022
+- Este projeto trata-se de um miniblog onde o teste é consumir API e bater todos os requisitos propostos no teste.
+- Criado em 17/04/2023
 ---
-
-## :framed_picture: Imagens do Projeto
-
-![imagem-projeto-final](Screen-main.PNG)
 
 ---
 ## :man_technologist:  Autor
@@ -33,7 +12,7 @@ pnpm dev
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/ccarlossilv/">
-        <img src="https://avatars.githubusercontent.com/carloosf" 
+       <img src="https://avatars.githubusercontent.com/carloosf" 
         width="100px;" alt="Carlos Silva"/>
         <br/>
         <sub>
@@ -48,3 +27,26 @@ pnpm dev
    
    E-mail: contato.carlossilvaf@gmail.com
 
+# Objetivos
+
+- [x]  Definir layout da página Home
+- [x]  Obter informações da News API
+- [x]  Listar informações na página Home
+- [x]  Definir layout da página Article
+- [x]  Exibir conteúdo completo do artigo na página Article
+- [x]  Implementar seção de comentários na página Article
+- [x]  Implementar funcionalidade para comentar na seção de comentários
+- [x]  Implementar funcionalidade para curtir comentários
+- [x]  Implementar as rotas /api/posts e /api/posts/{id}
+- [x]  Utilizar banco de dados Mysql
+- [ ]  Paginação Home
+- [ ]  Modal User
+- [ ]  Modal Comentarios
+- [ ]  Utilizar prisma
+- [ ]  Utilizar Styled-Components
+- [ ]  Cors
+- [x]  Implementar funcionalidade para curtir respostas
+- [ ]  Add Curtir respostas no Banco
+- [ ]  Add comentários em banco de dados
+- [ ]  Add funcionalidade para responder a comentários
+- [ ]  Entregar solução final no prazo determinado 20/04/2023 às 23:59hrs
