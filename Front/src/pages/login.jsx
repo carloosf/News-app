@@ -21,24 +21,23 @@ export default function Login() {
                 Accept: 'application/json',
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({email, password, name, surname})
+            body: JSON.stringify({email, password, name, surname, action: 'signup'})
         })
         const json = await response.json()
         console.log(json);
-        e.preventDefault()
+        router.push('/');
     }
 
     const handleLoginSubmit = async (event) => {
-        event.preventDefault();
+        const response = await fetch('https://localhost:3333/login', {
+            method: 'POST',
+            headers:{
+                Accept: 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({email, password, name, surname, action: 'signup'})
+        })
 
-        try {
-            const token = await authenticateUser(email, password);
-            localStorage.setItem('token', token);
-            // Redireciona para a página inicial após o login bem-sucedido
-            router.push('/');
-        } catch (err) {
-            console.log(err.message);
-        }
     };
 
     function handleClick(tab) {
