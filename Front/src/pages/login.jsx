@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Login.module.css';
-import { authenticateUser } from '@/pages/api/authenticateUser';
 import SideContent from '@/components/SideContent/SideContent';
-import { registerUser } from '@/pages/api/signup';
 
 export default function Login() {
     const [activeTab, setActiveTab] = useState('entrar');
@@ -13,8 +11,22 @@ export default function Login() {
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const [showContent, setShowContent] = useState(false);
 
+    const handleSignupSubmit = async (e) => {
+        const response = await fetch('https://localhost:3333/login', {
+            method: 'POST',
+            headers:{
+                Accept: 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({email, password, name, surname})
+        })
+        const json = await response.json()
+        console.log(json);
+        e.preventDefault()
+    }
 
     const handleLoginSubmit = async (event) => {
         event.preventDefault();
@@ -23,18 +35,6 @@ export default function Login() {
             const token = await authenticateUser(email, password);
             localStorage.setItem('token', token);
             // Redireciona para a página inicial após o login bem-sucedido
-            router.push('/');
-        } catch (err) {
-            console.log(err.message);
-        }
-    };
-
-    const handleSignupSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
-            await registerUser(name, surname, email, password);
-            // Redireciona para a página inicial após o cadastro bem-sucedido
             router.push('/');
         } catch (err) {
             console.log(err.message);
@@ -124,7 +124,10 @@ export default function Login() {
                                 </div>
                             </div>
                         )}
-                        <button className={styles.submitBtn} type="submit">
+                        <button
+                            className={styles.submitBtn}
+                            type="submit"
+                            onChange={handleSignupSubmit}>
                             {activeTab === 'entrar' ? 'Entrar' : 'Cadastrar'}
                         </button>
                     </div>

@@ -1,26 +1,13 @@
-const express = require('express');
-const next = require('next');
+import express, { json } from "express"
+import routes from "./src/routes.js"
+const app = express()
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
+app.use(json())
+app.use(routes)
 
-// Importa o roteador do Express
-const router = require('./src/routes');
+app.get("/health", (req, res) => {
+    return res.json("up")
+})
 
-app.prepare().then(() => {
-    const server = express();
-
-    // Adiciona o roteador do Express
-    server.use(router);
-
-    // Adiciona a rota padrão do Next.js
-    server.all('*', (req, res) => {
-        return handle(req, res);
-    });
-
-    server.listen(3000, (err) => {
-        if (err) throw err;
-        console.log('> Ready on http://localhost:3000');
-    });
-});
+const port = 3333
+app.listen(port, () => console.log(`Servidor conectado na rota: ${port}`))
