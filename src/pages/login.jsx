@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Login.module.css';
 import { authenticateUser } from '@/api/auth';
-import Link from 'next/link';
 import SideContent from '@/components/SideContent/SideContent';
+import { registerUser } from '@/api/signup';
+
+
 
 export default function Login() {
     const [activeTab, setActiveTab] = useState('entrar');
@@ -14,6 +16,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showContent, setShowContent] = useState(false);
+
 
     const handleLoginSubmit = async (event) => {
         event.preventDefault();
@@ -32,7 +35,8 @@ export default function Login() {
         event.preventDefault();
 
         try {
-            // Crie a lógica para registrar um novo usuário aqui
+            await registerUser(name, surname, email, password);
+            // Redireciona para a página inicial após o cadastro bem-sucedido
             router.push('/');
         } catch (err) {
             setError(err.message);
@@ -41,11 +45,7 @@ export default function Login() {
 
     function handleClick(tab) {
         setActiveTab(tab);
-        if (tab === 'cadastrar') {
-            setShowContent(true);
-        } else {
-            setShowContent(false);
-        }
+        setShowContent(tab === 'cadastrar');
     }
 
     return (
@@ -137,3 +137,4 @@ export default function Login() {
         </div>
     );
 }
+
