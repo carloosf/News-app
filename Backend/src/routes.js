@@ -50,11 +50,25 @@ routes.post('/login', (req, res) => {
                 })
             })
         })
-    }else if(loginVerify){
-        console.log('oi');
+    } else if (loginVerify) {
+        connection.query('SELECT * FROM user WHERE email = ?', [email], (err, rows) => {
+            if (err) throw err
+            if (rows.length === 0) {
+                console.log("as Credenciais fornecidas nao sao validas")
+                return res.status(401).send(`o email ou senha nao esta valido`)
+            }
+            bcrypt.compare(password, rows[0].password, (err, result) => {
+                if (err) throw err
+                if (result === false) {
+                    console.log("as Credenciais fornecidas nao sao validas")
+                    return res.status(401).send(`o email ou senha nao esta valido`)
+                }
+                console.log("Login realizado")
+                return res.status(200).send('Login realizado com sucesso')
+            })
+        })
     }
-    //Verificação de duplicidade
-
 })
+
 
 export default routes

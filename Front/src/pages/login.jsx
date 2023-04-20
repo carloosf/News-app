@@ -12,7 +12,7 @@ export default function Login() {
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const loginVerify= true;
+    const [loginVerify, setLoginVerify] = useState(false);
 
     const [showContent, setShowContent] = useState(false);
 
@@ -23,7 +23,7 @@ export default function Login() {
             password: password,
             name: name,
             surname: surname,
-            loginVerify: loginVerify
+            loginVerify: activeTab === 'entrar' ? true : false
         };
         console.log(data);
 
