@@ -15,29 +15,24 @@ export default function Login() {
 
     const [showContent, setShowContent] = useState(false);
 
-    const handleSignupSubmit = async (e) => {
-        const response = await axios.get('https://localhost:3333/login', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({ email, password, name, surname })
-        })
-        const json = await response.json()
-        console.log(json);
-        router.push('/');
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            email: email,
+            password: password,
+            name: name,
+            surname: surname
+        };
+        console.log(data);
 
-    const handleLoginSubmit = async (event) => {
-        const response = await fetch('https://localhost:3333/login', {
-            headers: {
-                Accept: 'application/json',
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({ email, password, name, surname })
-        })
-        event.preventDefault
+
+        axios.post('http://localhost:3333/login', data)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     function handleClick(tab) {
@@ -48,7 +43,7 @@ export default function Login() {
     return (
         <div className={styles.loginContainer}>
             <div className={styles.form}>
-                <form className={styles.formData} onSubmit={activeTab === 'entrar' ? handleLoginSubmit : handleSignupSubmit}>
+                <form className={styles.formData} method='post'>
                     <nav className={styles.tabForm}>
                         <button className={activeTab === 'entrar' ? styles.active : ''} onClick={() => handleClick('entrar')}>
                             Entrar
@@ -91,10 +86,10 @@ export default function Login() {
                                 </div>
                                 <div className={styles.formLogin}>
                                     <input
-                                        type="password"
+                                        type="text"
                                         value={password}
+                                        placeholder='Insira sua senha'
                                         onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="Insira sua Senha"
                                         required
                                     />
                                 </div>
@@ -126,7 +121,7 @@ export default function Login() {
                         <button
                             className={styles.submitBtn}
                             type="submit"
-                            onChange={handleSignupSubmit}>
+                            onClick={handleSubmit}>
                             {activeTab === 'entrar' ? 'Entrar' : 'Cadastrar'}
                         </button>
                     </div>
