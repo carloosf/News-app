@@ -44,7 +44,7 @@
 - [ ]  Modal Comentarios
 - [ ]  Utilizar prisma
 - [ ]  Utilizar Styled-Components
-- [ ]  Cors
+- [x]  Cors
 - [x]  Implementar funcionalidade para curtir respostas
 - [ ]  Add Curtir respostas no Banco
 - [ ]  Add comentários em banco de dados

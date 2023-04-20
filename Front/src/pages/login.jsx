@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Login.module.css';
 import SideContent from '@/components/SideContent/SideContent';
+import axios from 'axios';
 
 export default function Login() {
     const [activeTab, setActiveTab] = useState('entrar');
@@ -15,13 +16,13 @@ export default function Login() {
     const [showContent, setShowContent] = useState(false);
 
     const handleSignupSubmit = async (e) => {
-        const response = await fetch('https://localhost:3333/login', {
+        const response = await axios.get('https://localhost:3333/login', {
             method: 'POST',
-            headers:{
+            headers: {
                 Accept: 'application/json',
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({email, password, name, surname, action: 'signup'})
+            body: JSON.stringify({ email, password, name, surname })
         })
         const json = await response.json()
         console.log(json);
@@ -30,14 +31,13 @@ export default function Login() {
 
     const handleLoginSubmit = async (event) => {
         const response = await fetch('https://localhost:3333/login', {
-            method: 'POST',
-            headers:{
+            headers: {
                 Accept: 'application/json',
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({email, password, name, surname, action: 'signup'})
+            body: JSON.stringify({ email, password, name, surname })
         })
-
+        event.preventDefault
     };
 
     function handleClick(tab) {

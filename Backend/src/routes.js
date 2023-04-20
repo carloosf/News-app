@@ -7,6 +7,7 @@ import mysql2 from "mysql2"
 import bodyParser from 'body-parser'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from "jsonwebtoken"
+import cors from "cors"
 
 //Cria uma variavel com o express
 const routes = Router()
@@ -16,6 +17,7 @@ const { hash, compare } = bcrypt
 const { sign } = jsonwebtoken
 const { json, urlencoded } = bodyParser
 
+routes.use(cors())
 routes.use(json())
 routes.use(urlencoded({ extended: true }));
 
@@ -31,29 +33,26 @@ connection.connect((err) => {
 })
 
 routes.post('/login', (req, res) => {
-    if (req.body.action === 'signup') {
-        const { email, password, name, surname } = req.body
-        //Verificação de duplicidade
-        connection.query('SELECT * FROM user WHERE email = ?', [email], (err, rows) => {
+
+    console.log(req.body);
+    const { email, password, name, surname } = req.body
+    //Verificação de duplicidade
+    connection.query('SELECT * FROM user WHERE email = ?', [email], (err, rows) => {
+        if (err) throw err
+        if (rows.length > 0) {
+            console.log(`O email ${email} já esta em uso.`)
+            res.status(409).send(`ò email ${email} já esta em uso.`)
+            return
+        }
+        hash(password, 10, (err, hash) => {
             if (err) throw err
-            if (rows.length > 0) {
-                console.log(`O email ${email} já esta em uso.`)
-                res.status(409).send(`ò email ${email} já esta em uso.`)
-                return
-            }
-            hash(password, 10, (err, hash) => {
+            connection.query('INSERT INTO user (email, password, name, surname) VALUES (?, ?, ?, ?)', [email, hash, name, surname], (err, result) => {
                 if (err) throw err
-                connection.query('INSERT INTO user (email, password, name, surname) VALUES (?, ?, ?)', [email, hash, name, surname], (err, result) => {
-                    if (err) throw err
-                    res.send(`Registro Criado com sucesso! ID: ${result.insertId}`)
-                })
+                res.send(`Registro Criado com sucesso! ID: ${result.insertId}`)
             })
         })
-    } else if ( req.body.action === 'login'){
+    })
 
-    }else {
-        res.status(400).send('Ação Inválida')
-    }
 })
 
 export default routes
