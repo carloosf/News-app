@@ -12,6 +12,7 @@ export default function Login() {
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const loginVerify= true;
 
     const [showContent, setShowContent] = useState(false);
 
@@ -21,7 +22,8 @@ export default function Login() {
             email: email,
             password: password,
             name: name,
-            surname: surname
+            surname: surname,
+            loginVerify: loginVerify
         };
         console.log(data);
 
