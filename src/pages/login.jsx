@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Login.module.css';
 import { authenticateUser } from '@/api/auth';
+import Link from 'next/link';
+import SideContent from '@/components/SideContent/SideContent';
 
 export default function Login() {
     const [activeTab, setActiveTab] = useState('entrar');
@@ -131,9 +133,7 @@ export default function Login() {
                     </div>
                 </form>
             </div>
-            <div className={styles.formContent}>
-
-            </div>
+            <SideContent />
         </div>
     );
 }

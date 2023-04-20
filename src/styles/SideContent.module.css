@@ -1,0 +1,45 @@
+.formContent {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+        url('../../public/content.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 5px rgb(65, 64, 64);
+}
+
+.sideContent{
+    height: 30%;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+}
+
+.homeButton{
+    margin: 0 auto;
+    padding: 6px 1.5rem;
+    border-radius: 3px;
+    font-weight: 600;
+    color: rgb(53, 43, 43);
+    background-color: aliceblue;
+    
+}
+
+.headerContent hr{
+    margin-block-start: 0.3rem;
+    margin-block-end: 0.6rem;
+}
+
+.headerContent h2{
+    margin: 0 auto;
+    width: 90%;
+}
+

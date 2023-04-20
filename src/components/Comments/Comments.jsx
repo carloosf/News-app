@@ -32,7 +32,15 @@ export default function Comments() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        const newComment = { User: 'Novo Usuário', Comment: text, Date: dateNow, Like: 0, Dislikes: 0 };
+        const newComment = {
+            User: 'Novo Usuário', 
+            Email: '',
+            Comment: text, 
+            Date: dateNow, 
+            Like: 0, 
+            Dislikes: 0,
+            respostas: []
+        };
         setComment([...comment, newComment]);
         setText('');
     }
