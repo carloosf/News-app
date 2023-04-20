@@ -31,8 +31,8 @@ export default function ArticleContent({ article, content }) {
             </header>
 
             <ul className={styles.articleText}>
-                {contentOrganized.map(contentOrganized => (
-                    <li>
+                {contentOrganized.map((contentOrganized, index) => (
+                    <li key={index}>
                         <p>{`${contentOrganized}`}</p><br />
                     </li>
                 ))}

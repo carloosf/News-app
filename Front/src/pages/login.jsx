@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Login.module.css';
-import { authenticateUser } from '@/api/auth';
+import { authenticateUser } from '@/pages/api/authenticateUser';
 import SideContent from '@/components/SideContent/SideContent';
-import { registerUser } from '@/api/signup';
-
-
+import { registerUser } from '@/pages/api/signup';
 
 export default function Login() {
     const [activeTab, setActiveTab] = useState('entrar');
     const router = useRouter();
+
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
     const [showContent, setShowContent] = useState(false);
 
 
@@ -27,7 +25,7 @@ export default function Login() {
             // Redireciona para a página inicial após o login bem-sucedido
             router.push('/');
         } catch (err) {
-            setError(err.message);
+            console.log(err.message);
         }
     };
 
@@ -39,7 +37,7 @@ export default function Login() {
             // Redireciona para a página inicial após o cadastro bem-sucedido
             router.push('/');
         } catch (err) {
-            setError(err.message);
+            console.log(err.message);
         }
     };
 
@@ -126,7 +124,6 @@ export default function Login() {
                                 </div>
                             </div>
                         )}
-                        {error && <div className={styles.error}>{error}</div>}
                         <button className={styles.submitBtn} type="submit">
                             {activeTab === 'entrar' ? 'Entrar' : 'Cadastrar'}
                         </button>

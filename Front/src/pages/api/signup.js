@@ -1,7 +1,7 @@
-import { query } from '@/handler/db';
+import { query } from '@/utils/db';
 import axios from 'axios';
 
-export default async function cadastro(req, res) {
+export default async function signup(req, res) {
     if (req.method === 'POST') {
         const { name, surname, email, password } = req.body;
         try {
@@ -26,7 +26,7 @@ export default async function cadastro(req, res) {
 }
 
 export async function registerUser(name, surname, email, password) {
-    const response = await axios.post('/api/cadastro', {
+    const response = await axios.post('/api/signup', {
         name,
         surname,
         email,
