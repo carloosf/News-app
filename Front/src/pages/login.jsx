@@ -24,12 +24,9 @@ export default function Login() {
             surname: surname,
             loginVerify: activeTab === 'entrar' ? true : false
         };
-        console.log(data);
-
 
         axios.post('http://localhost:3333/login', data)
             .then((response) => {
-                console.log(response.data);
             })
             .catch((error) => {
                 console.log(error);

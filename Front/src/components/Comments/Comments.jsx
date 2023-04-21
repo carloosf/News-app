@@ -28,11 +28,9 @@ export default function Comments({ article }) {
             Dislikes: 0,
             respostas: "[]"
         };
-        console.log(data);
 
         axios.post('http://localhost:3333/article', data)
             .then((response) => {
-                console.log(response.data);
             })
             .catch((error) => {
                 console.log(error);
@@ -48,8 +46,6 @@ export default function Comments({ article }) {
                 console.log(error)
             })
     }, [])
-
-    console.log(comment);
 
     function handleChange(event) {
         const inputText = event.target.value;

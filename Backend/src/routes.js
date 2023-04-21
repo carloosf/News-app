@@ -90,7 +90,7 @@ routes.post('/article', (req, res) => {
 
 routes.get('/article/:id', (req, res) => {
     const idurl = req.params.id
-    res.send(idurl);
+    console.log(idurl);
     connection.query('SELECT * FROM comment where Url = ?', [idurl], (err, rows) => {
         if (err) throw err
         res.send(rows)
