@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Comments.module.css';
 import LikeDislike from '@/components/LikeDislike/LikeDislike'
-import { BiUserCircle } from 'react-icons/bi'
+import axios from 'axios';
 
-export default function Comments() {
+
+export default function Comments({ article }, content,) {
+
     const now = new Date();
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -11,11 +13,30 @@ export default function Comments() {
     const dateNow = `${day}/${month}/${year}`;
 
     const [text, setText] = useState('');
-    const [comment, setComment] = useState([
-        { User: 'Carlos Silva', Comment: 'Briguem putas, briguem!!!', Date: '06/12/2002', Like: 0, Dislikes: 0 },
-        { User: 'Jair Inacio', Comment: 'Olá Companheiro', Date: '31/11/2022', Like: 0, Dislikes: 0 },
-        { User: 'Bolsonaro Lula', Comment: 'Imbroxavel', Date: '01/01/2023', Like: 0, Dislikes: 0 },
-    ]);
+    const [comment, setComment] = useState([]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            id: article.id,
+            Email: 'email@usuario.com',
+            Comment: text,
+            Date: dateNow,
+            Like: 0,
+            Dislikes: 0,
+            respostas: []
+        };
+        console.log(data);
+
+        axios.post('http://localhost:3333/article', data)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
 
     function handleChange(event) {
         const inputText = event.target.value;
@@ -28,21 +49,6 @@ export default function Comments() {
         } else {
             document.querySelector('#submitButton').setAttribute('disabled', true);
         }
-    }
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        const newComment = {
-            User: 'Novo Usuário', 
-            Email: '',
-            Comment: text, 
-            Date: dateNow, 
-            Like: 0, 
-            Dislikes: 0,
-            respostas: []
-        };
-        setComment([...comment, newComment]);
-        setText('');
     }
 
     return (
@@ -67,10 +73,9 @@ export default function Comments() {
                 </button>
                 <button
                     type="submit"
-                    onClick={handleSubmit}> Cancelar
+                >Cancelar
                 </button>
             </div>
-
 
             <ul className={styles.usersComments}>
                 {comment.map((comment, index) => (
@@ -97,3 +102,26 @@ export default function Comments() {
         </section>
     );
 }
+
+/*
+export async function getStaticProps() {
+    const response = await axios.get('https://news-api.lublot.dev/api/posts[id]');
+    const post = response.data;
+
+    const posts = post.slice(0, 20);
+    const heroPost = posts[Math.floor(Math.random() * posts.length)];
+    const tags = post.map((tag) => {
+
+        return tag.tags;
+    });
+
+    return {
+        props: {
+            posts,
+            heroPost,
+            tags,
+        },
+        revalidate: 60 * 60 * 1,
+    };
+}
+*/

@@ -16,9 +16,7 @@ export default function Aside({ tags }) {
     useEffect(() => {
         getTags();
     }, [tags]);
-
-    console.log(list);
-
+    
     return (
         <aside className={styles.aside}>
             <header className={styles.headerAside}>

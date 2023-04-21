@@ -39,8 +39,7 @@ export default function ArticleContent({ article, content }) {
                 <hr />
             </ul>
 
-
-            <Comments></Comments>
+            <Comments article={article} content={content} />
 
             <footer>
             </footer>
