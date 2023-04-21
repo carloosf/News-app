@@ -48,3 +48,12 @@
 - [x]  Add comentários em banco de dados
 - [ ]  Add funcionalidade para responder a comentários
 - [x]  Entregar solução final no prazo determinado 20/04/2023 às 23:59hrs
+
+<hr />
+OBS - separei os arquivos back e front para poder utilizar o express para logica de rotas.
+entao utilizar um inicio em cada pasta ex: 
+
+##bash
+D:\Github\oper-news-app\Backend: npm run dev
+e
+D:\Github\oper-news-app\Frontend: npm run dev
