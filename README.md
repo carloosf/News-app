@@ -48,3 +48,7 @@
 - [x]  Add comentários em banco de dados
 - [ ]  Add funcionalidade para responder a comentários
 - [x]  Entregar solução final no prazo determinado 20/04/2023 às 23:59hrs
+
+
+<hr />
+## Foi criado separadamente os arquivos front e back então iniciar as aplicações de formas separadas.
