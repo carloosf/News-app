@@ -39,14 +39,12 @@
 - [x]  Implementar funcionalidade para curtir comentários
 - [x]  Implementar as rotas /api/posts e /api/posts/{id}
 - [x]  Utilizar banco de dados Mysql
-- [ ]  Paginação Home
-- [ ]  Modal User
-- [ ]  Modal Comentarios
-- [ ]  Utilizar prisma
-- [ ]  Utilizar Styled-Components
 - [x]  Cors
 - [x]  Implementar funcionalidade para curtir respostas
+- [ ]  Paginação Home
+- [ ]  Utilizar Models
+- [ ]  Utilizar prisma
 - [ ]  Add Curtir respostas no Banco
-- [ ]  Add comentários em banco de dados
+- [x]  Add comentários em banco de dados
 - [ ]  Add funcionalidade para responder a comentários
-- [ ]  Entregar solução final no prazo determinado 20/04/2023 às 23:59hrs
+- [x]  Entregar solução final no prazo determinado 20/04/2023 às 23:59hrs
