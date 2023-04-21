@@ -81,10 +81,19 @@ routes.post('/article', (req, res) => {
         respostas
     } = req.body
 
-    connection.query("INSERT INTO comment (idUrl, Email, Content, DateComment, Likes, Dislikes, respostas) VALUES (? , ?, ?, ?, ?, ?, ?)", 
-    [id, Email, Comment, Date, Like, Dislikes, respostas], (err, result) => {
+    connection.query("INSERT INTO comment (Url, Email, Content, DateComment, Likes, Dislikes, respostas) VALUES (? , ?, ?, ?, ?, ?, ?)",
+        [id, Email, Comment, Date, Like, Dislikes, respostas], (err, result) => {
+            if (err) throw err
+            res.send(`Registro Criado com sucesso! ID: ${result}`)
+        })
+})
+
+routes.get('/article/:id', (req, res) => {
+    const idurl = req.params.id
+    res.send(idurl);
+    connection.query('SELECT * FROM comment where Url = ?', [idurl], (err, rows) => {
         if (err) throw err
-        res.send(`Registro Criado com sucesso! ID: ${result}`)
+        res.send(rows)
     })
 })
 

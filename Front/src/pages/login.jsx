@@ -87,7 +87,7 @@ export default function Login() {
                                 </div>
                                 <div className={styles.formLogin}>
                                     <input
-                                        type="text"
+                                        type="password"
                                         value={password}
                                         placeholder='Insira sua senha'
                                         onChange={(e) => setPassword(e.target.value)}

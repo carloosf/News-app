@@ -12,8 +12,10 @@ export default function Comments({ article }) {
     const day = String(now.getDate()).padStart(2, '0');
     const dateNow = `${day}-${month}-${year}`;
 
-    const [text, setText] = useState('');
+
     const [comment, setComment] = useState([]);
+    const [text, setText] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,8 +37,19 @@ export default function Comments({ article }) {
             .catch((error) => {
                 console.log(error);
             });
-    };
+    }
 
+    useEffect(() => {
+        axios
+            .get(`http://localhost:3333/article/${article.id}`)
+            .then((response) => response.json())
+            .then(response => setComment(response))
+            .catch(error => {
+                console.log(error)
+            })
+    }, [])
+
+    console.log(comment);
 
     function handleChange(event) {
         const inputText = event.target.value;
@@ -53,7 +66,7 @@ export default function Comments({ article }) {
 
     return (
         <section className={styles.commentSection}>
-            <h1>{`${comment.length}`} Comentários:</h1>
+            <h1>Comentários:</h1>
             <textarea
                 name=""
                 id=""
@@ -103,25 +116,3 @@ export default function Comments({ article }) {
     );
 }
 
-/*
-export async function getStaticProps() {
-    const response = await axios.get('https://news-api.lublot.dev/api/posts[id]');
-    const post = response.data;
-
-    const posts = post.slice(0, 20);
-    const heroPost = posts[Math.floor(Math.random() * posts.length)];
-    const tags = post.map((tag) => {
-
-        return tag.tags;
-    });
-
-    return {
-        props: {
-            posts,
-            heroPost,
-            tags,
-        },
-        revalidate: 60 * 60 * 1,
-    };
-}
-*/
