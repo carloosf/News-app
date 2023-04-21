@@ -80,20 +80,13 @@ routes.post('/article', (req, res) => {
         Dislikes,
         respostas
     } = req.body
-    console.log(req.body);
 
-    connection.query(
-        'INSERT INTO comment (id, Email, Comment, Date, Likes, Dislikes, respostas) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        [id, Email, Comment, Date, Like, Dislikes, respostas],
-        (err, result) => {
-            if (err) {
-                console.error('Erro de sintaxe no SQL:', err);
-                return res.status(500).send('Erro interno no servidor');
-            }
-            console.log(result);
-            res.status(200).send('Registro criado com sucesso');
-        }
-    );
-});
+    connection.query("INSERT INTO comment (idUrl, Email, Content, DateComment, Likes, Dislikes, respostas) VALUES (? , ?, ?, ?, ?, ?, ?)", 
+    [id, Email, Comment, Date, Like, Dislikes, respostas], (err, result) => {
+        if (err) throw err
+        res.send(`Registro Criado com sucesso! ID: ${result}`)
+    })
+})
+
 
 export default routes

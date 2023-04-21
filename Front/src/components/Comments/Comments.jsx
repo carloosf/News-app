@@ -4,13 +4,13 @@ import LikeDislike from '@/components/LikeDislike/LikeDislike'
 import axios from 'axios';
 
 
-export default function Comments({ article }, content,) {
+export default function Comments({ article }) {
 
     const now = new Date();
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const day = String(now.getDate()).padStart(2, '0');
-    const dateNow = `${day}/${month}/${year}`;
+    const dateNow = `${day}-${month}-${year}`;
 
     const [text, setText] = useState('');
     const [comment, setComment] = useState([]);
@@ -24,7 +24,7 @@ export default function Comments({ article }, content,) {
             Date: dateNow,
             Like: 0,
             Dislikes: 0,
-            respostas: []
+            respostas: "[]"
         };
         console.log(data);
 
